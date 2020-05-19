@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
 import Pizza from '../components/Pizza'
+// import PizzaForm
+// import PizzaForm from '../components/PizzaForm'
+
+
 class PizzaList extends Component {
+  
+  // helper method to render pizza
+  renderPizzas = () => this.props.pizzas.map(pizza => (
+   <Pizza key={pizza.id} pizza={pizza} handleClick={this.props.handleClick}/>
+  ))
 
   render() {
+    console.log(this.pizza)
     return (
       <table className="table table-striped">
         <thead>
@@ -15,7 +25,7 @@ class PizzaList extends Component {
         </thead>
         <tbody>
           {
-            //render Pizza here
+           this.renderPizzas()
           }
         </tbody>
       </table>
